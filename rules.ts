@@ -48,54 +48,10 @@ const rules: KarabinerRules[] = [
       x: app("Xcode"),
       c: app("Cursor"),
       s: app("Slack"),
-      grave_accent_and_tilde: app("WezTerm"),
+      t: app("WezTerm"),
       f: app("Finder"),
       w: open("WhatsApp"),
-      t: open("Telegram"),
-    },
-
-    // w = "Window" via rectangle.app
-    w: {
-      j: open("raycast://extensions/raycast/window-management/bottom-half"),
-      k: open("raycast://extensions/raycast/window-management/top-half"),
-      l: open("raycast://extensions/raycast/window-management/right-half"),
-      h: open("raycast://extensions/raycast/window-management/left-half"),
-      u: {
-        description: "Window: Previous Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control", "right_shift"],
-          },
-        ],
-      },
-      i: {
-        description: "Window: Next Tab",
-        to: [
-          {
-            key_code: "tab",
-            modifiers: ["right_control"],
-          },
-        ],
-      },
-      n: {
-        description: "Window: Next Window",
-        to: [
-          {
-            key_code: "grave_accent_and_tilde",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
-      b: {
-        description: "Window: Back",
-        to: [
-          {
-            key_code: "open_bracket",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
+      e: open("Telegram"),
     },
 
     // s = "System"
@@ -114,46 +70,29 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      i: {
+      p: {
         to: [
           {
             key_code: "display_brightness_increment",
           },
         ],
       },
-      k: {
+      o: {
         to: [
           {
             key_code: "display_brightness_decrement",
           },
         ],
       },
-      l: {
-        to: [
-          {
-            key_code: "q",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-      p: {
+      k: {
         to: [
           {
             key_code: "play_or_pause",
           },
         ],
       },
-      semicolon: {
-        to: [
-          {
-            key_code: "fastforward",
-          },
-        ],
-      },
     },
 
-    // v = "moVe" which isn't "m" because we want it to be on the left hand
-    // so that hjkl work like they do in vim
     v: {
       h: {
         to: [{ key_code: "left_arrow" }],
@@ -167,47 +106,21 @@ const rules: KarabinerRules[] = [
       l: {
         to: [{ key_code: "right_arrow" }],
       },
-      // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-        // TODO: Trigger Vim Easymotion when VSCode is focused
-      },
-      // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
+      u: {
+        to: [{ key_code: "page_up" }],
       },
       d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
-      },
-      u: {
         to: [{ key_code: "page_down" }],
-      },
-      i: {
-        to: [{ key_code: "page_up" }],
       },
     },
 
     // r = "Raycast"
     r: {
       c: open("raycast://extensions/thomas/color-picker/pick-color"),
-      n: open("raycast://script-commands/dismiss-notifications"),
-      l: open(
-        "raycast://extensions/stellate/mxstbr-commands/create-mxs-is-shortlink"
-      ),
-      e: open(
-        "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
-      ),
-      p: open("raycast://extensions/raycast/raycast/confetti"),
-      a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
-      s: open("raycast://extensions/peduarte/silent-mention/index"),
+      g: open("raycast://ai-commands/fix-spelling-and-grammar"),
+      p: open("raycast://extensions/raycast/navigation/search-menu-items"),
       h: open(
         "raycast://extensions/raycast/clipboard-history/clipboard-history"
-      ),
-      1: open(
-        "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
-      ),
-      2: open(
-        "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2"
       ),
     },
   }),
@@ -223,6 +136,7 @@ fs.writeFileSync(
       profiles: [
         {
           name: "Default",
+          virtual_hid_keyboard: { keyboard_type_v2: "ansi" },
           complex_modifications: {
             rules,
           },
