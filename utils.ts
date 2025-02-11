@@ -166,6 +166,15 @@ export function open(...what: string[]): LayerCommand {
   };
 }
 
+export function openInBackground(...what: string[]): LayerCommand {
+  return {
+    to: what.map((w) => ({
+      shell_command: `open -g ${w}`,
+    })),
+    description: `Open ${what.join(" & ")} in background`,
+  };
+}
+
 /**
  * Utility function to create a LayerCommand from a tagged template literal
  * where each line is a shell command to be executed.
@@ -188,20 +197,6 @@ export function shell(
       shell_command: command.trim(),
     })),
     description: commands.join(" && "),
-  };
-}
-
-/**
- * Shortcut for managing window sizing with Rectangle
- */
-export function rectangle(name: string): LayerCommand {
-  return {
-    to: [
-      {
-        shell_command: `open -g rectangle://execute-action?name=${name}`,
-      },
-    ],
-    description: `Window: ${name}`,
   };
 }
 

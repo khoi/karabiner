@@ -1,6 +1,6 @@
 import fs from "fs";
 import { KarabinerRules } from "./types";
-import { createHyperSubLayers, app, open, rectangle, shell } from "./utils";
+import { createHyperSubLayers, app, open, openInBackground } from "./utils";
 
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
@@ -52,6 +52,31 @@ const rules: KarabinerRules[] = [
       f: app("Finder"),
       w: open("WhatsApp"),
       e: open("Telegram"),
+    },
+
+    // w = "windows"
+    w: {
+      n: openInBackground(
+        "raycast://extensions/raycast/window-management/next-display"
+      ),
+      p: openInBackground(
+        "raycast://extensions/raycast/window-management/previous-display"
+      ),
+      k: openInBackground(
+        "raycast://extensions/raycast/window-management/top-half"
+      ),
+      j: openInBackground(
+        "raycast://extensions/raycast/window-management/bottom-half"
+      ),
+      h: openInBackground(
+        "raycast://extensions/raycast/window-management/left-half"
+      ),
+      l: openInBackground(
+        "raycast://extensions/raycast/window-management/right-half"
+      ),
+      f: openInBackground(
+        "raycast://extensions/raycast/window-management/maximize"
+      ),
     },
 
     // s = "System"
