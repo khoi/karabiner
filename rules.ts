@@ -9,7 +9,7 @@ const rules: KarabinerRules[] = [
       {
         description: "Hyper Key",
         from: {
-          key_code: "right_option",
+          key_code: "right_command",
           modifiers: {
             optional: ["any"],
           },
