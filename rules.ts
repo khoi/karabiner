@@ -3,14 +3,13 @@ import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, openInBackground } from "./utils";
 
 const rules: KarabinerRules[] = [
-  // Define the Hyper key itself
   {
-    description: "Hyper Key (⌃⌥⇧⌘) / ESC (tap)",
+    description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
       {
-        description: "Caps Lock -> Hyper Key",
+        description: "Hyper Key",
         from: {
-          key_code: "caps_lock",
+          key_code: "right_option",
           modifiers: {
             optional: ["any"],
           },
@@ -29,6 +28,26 @@ const rules: KarabinerRules[] = [
               name: "hyper",
               value: 0,
             },
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  {
+    description: "CapsLock To Control (on hold) / ESC (tap)",
+    manipulators: [
+      {
+        description: "CapsLock to Control",
+        from: {
+          key_code: "caps_lock",
+          modifiers: {
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            key_code: "left_control",
           },
         ],
         to_if_alone: [
