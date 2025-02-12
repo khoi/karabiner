@@ -160,7 +160,7 @@ const rules: KarabinerRules[] = [
 
     // r = "Raycast"
     r: {
-      c: open("raycast://extensions/thomas/color-picker/pick-color"),
+      c: openInBackground("raycast://extensions/raycast/raycast/confetti"),
       g: open("raycast://ai-commands/fix-spelling-and-grammar"),
       p: open("raycast://extensions/raycast/navigation/search-menu-items"),
       h: open(
